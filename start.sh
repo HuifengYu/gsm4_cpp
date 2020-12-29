@@ -3,7 +3,7 @@
 # start sshd
 __run_() {
   echo -e "123456\n123456" | (passwd)
-  /usr/sbin/sshd -D
+  /usr/sbin/sshd &
 }
 
 # start node
