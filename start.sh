@@ -19,4 +19,3 @@ __start_pm2() {
 # run
 __start_pm2
 __run_ $1
-__start_cpp
