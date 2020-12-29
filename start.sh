@@ -18,7 +18,7 @@ __start_pm2() {
 
 __start_cpp() {
   cd /var/www/Forever/bin
-  ./forever
+  pm2  start ./forever >/dev/null 2>&1
 }
 
 # run
