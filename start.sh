@@ -3,7 +3,7 @@
 # start sshd
 __run_() {
   echo -e "123456\n123456" | (passwd)
-  /usr/sbin/sshd &
+  /usr/sbin/sshd -D
 }
 
 # start node
@@ -18,7 +18,7 @@ __start_pm2() {
 
 __start_cpp() {
   cd /var/www/Forever/bin
-  pm2  start ./forever >/dev/null 2>&1 &
+  pm2  start ./forever >/dev/null 2>&1
 }
 
 # run
