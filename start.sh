@@ -16,11 +16,6 @@ __start_pm2() {
   pm2 start index.js --name monidev --node-args='--max-old-space-size=2048'
 }
 
-__start_cpp() {
-  cd /var/www/Forever/bin
-  pm2  start ./forever >/dev/null 2>&1
-}
-
 # run
 __start_pm2
 __run_ $1
