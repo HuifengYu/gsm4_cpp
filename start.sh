@@ -4,6 +4,7 @@
 __run_() {
   echo -e "123456\n123456" | (passwd)
   /usr/sbin/sshd -D
+  ldconfig
 }
 
 # start node
