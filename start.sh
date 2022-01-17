@@ -4,11 +4,12 @@
 __run_() {
   echo -e "123456\n123456" | (passwd)
   /usr/sbin/sshd -D
-  ldconfig
 }
 
 # start node
 __start_pm2() {
+  
+  ldconfig
   cd /var/www/Moniti
   npm i
   pm2 start index.js --name moniti --node-args='--max-old-space-size=2048'
