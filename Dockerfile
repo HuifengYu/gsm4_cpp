@@ -8,6 +8,7 @@ ADD ./hkv6.tar.bz2 /usr/local/
 ADD ./mbed.tar.bz2 /usr/local/
 ADD ./opc.tar.bz2 /usr/local/
 ADD ./ld.so.conf /etc/ld.so.conf
+ldconfig
 
 RUN set -x && apt-get update && apt-get install -y --no-install-recommends  openssh-server tzdata wget  && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/*
 RUN mkdir /var/run/sshd && \
