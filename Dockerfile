@@ -36,6 +36,5 @@ WORKDIR /var/www
 
 RUN npm config set registry https://registry.npm.taobao.org/ && npm install pm2 -g
 RUN npm install pm2-logrotate
-apt install wine
 Sleep 1000
 ENTRYPOINT ["/bin/bash", "/start.sh"]
