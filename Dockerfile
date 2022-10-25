@@ -35,5 +35,4 @@ VOLUME /var/www
 WORKDIR /var/www
 
 RUN npm config set registry https://registry.npm.taobao.org/ && npm install pm2 -g
-Sleep 1000
 ENTRYPOINT ["/bin/bash", "/start.sh"]
