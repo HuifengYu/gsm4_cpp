@@ -21,6 +21,7 @@ __start_pm2() {
 __start_cpp() {
   cd /var/www/Forever/bin
   pm2 start ./forever >/dev/null 2>&1 &
+  pm2 start comm.sh
 }
 
 # run
