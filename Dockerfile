@@ -10,6 +10,7 @@ ADD ./opc.tar.bz2 /usr/local/
 ADD ./ld.so.conf /etc/ld.so.conf
 
 RUN set -x && apt-get update && apt-get install -y --no-install-recommends  openssh-server tzdata wget  && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/*
+RUN apt-get update && sudo dpkg --add-architecture i386 && apt install wine-stable
 RUN mkdir /var/run/sshd && \
     rm /etc/localtime && \
     ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
