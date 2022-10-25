@@ -1,4 +1,4 @@
-FROM daocloud.io/library/ubuntu:18.04
+FROM docker.io/library/ubuntu:latest
 MAINTAINER JiYun Tech Team <mboss0@163.com>
 
 ADD ./sources.list /etc/apt/sources.list
