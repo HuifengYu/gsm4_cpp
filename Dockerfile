@@ -10,8 +10,8 @@ ADD ./opc.tar.bz2 /usr/local/
 ADD ./ld.so.conf /etc/ld.so.conf
 
 RUN set -x && apt-get update && apt-get install -y --no-install-recommends  openssh-server tzdata wget  && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/*
-RUN apt-get update && dpkg --add-architecture i386 && apt-get update && apt-get upgrade && apt install -y wine-stable
-RUN apt-get update &&  apt-get update && apt-get upgrade && apt install -y wine32
+RUN apt-get update && dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt install -y wine-stable
+RUN apt-get update &&  apt-get update && apt-get upgrade -y && apt install -y wine32
 RUN mkdir /var/run/sshd && \
     rm /etc/localtime && \
     ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
