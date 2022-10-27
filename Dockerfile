@@ -24,6 +24,9 @@ RUN mkdir /var/run/sshd && \
     
 RUN apt-get update && dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt install -y wine-stable
 RUN apt-get update &&  apt-get update && apt-get upgrade -y && apt install -y wine32
+ADD ./node-v11.5.0-linux-x64.tar.gz /tmp/
+RUN tar -xzf /tmp/node-v11.5.0-linux-x64.tar.gz -C /usr/local --strip-components=1 --no-same-owner && \
+    rm -rf /tmp/*
 ADD ./start.sh /start.sh
 RUN chmod 755 /start.sh
 
