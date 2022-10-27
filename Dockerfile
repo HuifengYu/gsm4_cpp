@@ -1,4 +1,4 @@
-FROM docker.io/library/ubuntu:18.04
+FROM daocloud.io/library/ubuntu:18.04
 MAINTAINER JiYun Tech Team <mboss0@163.com>
 
 ADD ./sources.list /etc/apt/sources.list
@@ -10,7 +10,6 @@ ADD ./opc.tar.bz2 /usr/local/
 ADD ./ld.so.conf /etc/ld.so.conf
 
 RUN set -x && apt-get update && apt-get install -y --no-install-recommends  openssh-server tzdata wget  && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/*
-
 RUN mkdir /var/run/sshd && \
     rm /etc/localtime && \
     ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
@@ -21,12 +20,11 @@ RUN mkdir /var/run/sshd && \
     ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N '' && \
     ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N '' && \
     ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N ''
-    
-#RUN apt-get update && dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt install -y wine-stable
-#RUN apt-get update &&  apt-get update && apt-get upgrade -y && apt install -y wine32
-ADD ./node-v11.5.0-linux-x64.tar.gz /tmp/
+
+ADD https://nodejs.org/dist/v11.5.0/node-v11.5.0-linux-x64.tar.gz /tmp/
 RUN tar -xzf /tmp/node-v11.5.0-linux-x64.tar.gz -C /usr/local --strip-components=1 --no-same-owner && \
     rm -rf /tmp/*
+
 ADD ./start.sh /start.sh
 RUN chmod 755 /start.sh
 
@@ -37,4 +35,7 @@ VOLUME /var/www
 WORKDIR /var/www
 
 RUN npm config set registry https://registry.npm.taobao.org/ && npm install pm2 -g
+RUN npm install pm2-logrotate
+apt install wine
+Sleep 1000
 ENTRYPOINT ["/bin/bash", "/start.sh"]
