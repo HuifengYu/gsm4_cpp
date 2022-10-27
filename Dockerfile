@@ -24,7 +24,7 @@ RUN mkdir /var/run/sshd && \
 COPY ./node-v11.5.0-linux-x64.tar.gz /tmp/node-v11.5.0-linux-x64.tar.gz
 RUN tar -xzf /tmp/node-v11.5.0-linux-x64.tar.gz -C /usr/local --strip-components=1 --no-same-owner && \
     rm -rf /tmp/*
-RUN apt-get update && sudo dpkg --add-architecture i386 && apt-get update && apt-get upgrade && apt install wine-stable
+RUN apt-get update && dpkg --add-architecture i386 && apt-get update && apt-get upgrade && apt install wine-stable
 RUN apt-get update &&  apt-get update && apt-get upgrade && apt install wine32
 
 ADD ./start.sh /start.sh
