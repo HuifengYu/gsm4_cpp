@@ -1,4 +1,4 @@
-FROM daocloud.io/library/ubuntu:18.04
+FROM docker.io/library/ubuntu:18.04
 MAINTAINER JiYun Tech Team <mboss0@163.com>
 
 ADD ./sources.list /etc/apt/sources.list
@@ -35,7 +35,4 @@ VOLUME /var/www
 WORKDIR /var/www
 
 RUN npm config set registry https://registry.npm.taobao.org/ && npm install pm2 -g
-RUN npm install pm2-logrotate
-apt install wine
-Sleep 1000
 ENTRYPOINT ["/bin/bash", "/start.sh"]
