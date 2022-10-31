@@ -27,11 +27,11 @@ RUN tar -xzf /tmp/node-v11.5.0-linux-x64.tar.gz -C /usr/local --strip-components
 RUN apt-get update 
 RUN dpkg --add-architecture i386 
 RUN apt-get update 
-RUN apt-get upgrade 
-RUN apt install wine-stable
+RUN apt-get upgrade -y
+RUN apt install wine-stable -y
 RUN apt-get update 
-RUN apt-get upgrade 
-RUN apt install wine32
+RUN apt-get upgrade -y
+RUN apt install wine32 -y
 
 ADD ./start.sh /start.sh
 RUN chmod 755 /start.sh
