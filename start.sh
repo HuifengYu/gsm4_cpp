@@ -7,16 +7,16 @@ __run_() {
 }
 
 # start node
-# __start_pm2() {
+__start_pm2() {
   
-#   ldconfig
+  ldconfig
 #   cd /var/www/Moniti
 #   npm i
 #   pm2 start index.js --name moniti --node-args='--max-old-space-size=2048'
 #   cd /var/www/MoniDev
 #   npm i
 #   pm2 start index.js --name monidev --node-args='--max-old-space-size=2048'
-# }
+}
 
 __start_cpp() {
   sleep 1m
