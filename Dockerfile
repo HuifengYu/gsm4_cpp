@@ -29,14 +29,14 @@ COPY ./tcpTransportPing.tar.gz /tmp/
 RUN tar -xzf /tmp/tcpTransportPing.tar.gz -C /  --no-same-owner && \
     rm -rf /tmp/*
 
-RUN apt-get update 
-RUN dpkg --add-architecture i386 
-RUN apt-get update 
-RUN apt-get upgrade -y
-RUN apt install wine-stable -y
-RUN apt-get update 
-RUN apt-get upgrade -y
-RUN apt install wine32 -y
+# RUN apt-get update 
+# RUN dpkg --add-architecture i386 
+# RUN apt-get update 
+# RUN apt-get upgrade -y
+# RUN apt install wine-stable -y
+# RUN apt-get update 
+# RUN apt-get upgrade -y
+# RUN apt install wine32 -y
 
 ADD ./start.sh /start.sh
 RUN chmod 755 /start.sh
