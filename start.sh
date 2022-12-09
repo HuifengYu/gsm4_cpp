@@ -24,6 +24,8 @@ __start_comm() {
 }
 __start_cpp() {
   sleep 1m
+  cd /tcpTransportPing
+  pm2   start   app.js
   cd /var/www/Forever/bin
   pm2 start ./forever >/dev/null 2>&1 &
 }
