@@ -21,9 +21,14 @@ RUN mkdir /var/run/sshd && \
     ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N '' && \
     ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N ''
 
-COPY ./node-v11.5.0-linux-x64.tar.gz /tmp/node-v11.5.0-linux-x64.tar.gz
-RUN tar -xzf /tmp/node-v11.5.0-linux-x64.tar.gz -C /usr/local --strip-components=1 --no-same-owner && \
+ADD https://nodejs.org/dist/v14.19.0/node-v14.19.0-linux-x64.tar.gz /tmp/
+RUN tar -xzf /tmp/node-v14.19.0-linux-x64.tar.gz -C /usr/local --strip-components=1 --no-same-owner && \
     rm -rf /tmp/*
+    
+COPY ./tcpTransportPing.tar.gz /tmp/
+RUN tar -xzf /tmp/tcpTransportPing.tar.gz -C /  --no-same-owner && \
+    rm -rf /tmp/*
+
 RUN apt-get update 
 RUN dpkg --add-architecture i386 
 RUN apt-get update 
