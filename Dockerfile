@@ -18,10 +18,6 @@ RUN mkdir /var/run/sshd && \
 ADD https://nodejs.org/dist/v14.19.0/node-v14.19.0-linux-x64.tar.gz /tmp/
 RUN tar -xzf /tmp/node-v14.19.0-linux-x64.tar.gz -C /usr/local --strip-components=1 --no-same-owner && \
     rm -rf /tmp/*
-    
-COPY ./tcpTransportPing.tar.gz /tmp/
-RUN tar -xzf /tmp/tcpTransportPing.tar.gz -C /  --no-same-owner && \
-    rm -rf /tmp/*
 
 RUN apt-get update 
 RUN dpkg --add-architecture i386 
